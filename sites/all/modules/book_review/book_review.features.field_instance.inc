@@ -58,7 +58,7 @@ function book_review_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => -4,
+      'weight' => 1,
     ),
   );
 
@@ -99,7 +99,7 @@ function book_review_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => -3,
+      'weight' => 2,
     ),
   );
 
@@ -108,50 +108,35 @@ function book_review_field_default_field_instances() {
     'bundle' => 'book_review',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'enter a rating between 1-5',
+    'description' => 'please click on the rating you wish this book to have',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_integer',
-        'weight' => 2,
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 4,
       ),
       'full' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_integer',
-        'weight' => 2,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'node',
     'field_name' => 'field_rating',
     'label' => 'Rating',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
-      'max' => 5,
-      'min' => 1,
-      'prefix' => '',
-      'suffix' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 0,
-      'module' => 'number',
+      'active' => 1,
+      'module' => 'options',
       'settings' => array(),
-      'type' => 'number',
-      'weight' => -2,
+      'type' => 'options_buttons',
+      'weight' => 3,
     ),
   );
 
@@ -192,7 +177,7 @@ function book_review_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => -1,
+      'weight' => 4,
     ),
   );
 
@@ -203,9 +188,9 @@ function book_review_field_default_field_instances() {
   t('Book Title');
   t('Rating');
   t('Review Body');
-  t('enter a rating between 1-5');
   t('enter a summary of why you gave the rating you did. (ex. I gave this book the rating of 3 stars because....)');
   t('enter the books author');
+  t('please click on the rating you wish this book to have');
 
   return $field_instances;
 }
